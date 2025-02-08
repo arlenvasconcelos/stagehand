@@ -6,11 +6,13 @@ import {
 } from "../../types/model";
 import { LLMCache } from "../cache/LLMCache";
 import { AnthropicClient } from "./AnthropicClient";
+import { GeminiAIClient } from "./GeminiAIClient";
 import { LLMClient } from "./LLMClient";
 import { OpenAIClient } from "./OpenAIClient";
 
 export class LLMProvider {
   private modelToProviderMap: { [key in AvailableModel]: ModelProvider } = {
+    "google/gemini-2.0-flash-001": "geminiai",
     "gpt-4o": "openai",
     "gpt-4o-mini": "openai",
     "gpt-4o-2024-08-06": "openai",
@@ -70,6 +72,14 @@ export class LLMProvider {
         });
       case "anthropic":
         return new AnthropicClient({
+          logger: this.logger,
+          enableCaching: this.enableCaching,
+          cache: this.cache,
+          modelName,
+          clientOptions,
+        });
+      case "geminiai":
+        return new GeminiAIClient({
           logger: this.logger,
           enableCaching: this.enableCaching,
           cache: this.cache,

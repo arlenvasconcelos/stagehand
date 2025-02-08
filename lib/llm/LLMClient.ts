@@ -24,6 +24,7 @@ export interface ChatMessageTextContent {
 }
 
 export const modelsWithVision: AvailableModel[] = [
+  "google/gemini-2.0-flash-001",
   "gpt-4o",
   "gpt-4o-mini",
   "claude-3-5-sonnet-latest",
@@ -90,7 +91,7 @@ export interface CreateChatCompletionOptions {
 }
 
 export abstract class LLMClient {
-  public type: "openai" | "anthropic" | string;
+  public type: "openai" | "anthropic" | "geminiai" | string;
   public modelName: AvailableModel;
   public hasVision: boolean;
   public clientOptions: ClientOptions;
