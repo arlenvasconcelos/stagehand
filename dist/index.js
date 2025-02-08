@@ -1286,7 +1286,7 @@ ${JSON.stringify(
       }
       const _c = options, { image, requestId } = _c, optionsWithoutImageAndRequestId = __objRest(_c, ["image", "requestId"]);
       logger({
-        category: "openai",
+        category: "gemini",
         message: "creating chat completion",
         level: 1,
         auxiliary: {
@@ -1383,7 +1383,7 @@ ${parsedSchema}
             });
           } catch (error) {
             logger({
-              category: "openai",
+              category: "gemini",
               message: "Failed to parse response model schema",
               level: 0
             });
@@ -1407,7 +1407,7 @@ ${parsedSchema}
         model: this.modelName
       }), { response_model } = _f, openAiOptions = __objRest(_f, ["response_model"]);
       logger({
-        category: "openai",
+        category: "gemini",
         message: "creating chat completion",
         level: 1,
         auxiliary: {
@@ -1499,7 +1499,7 @@ ${parsedSchema}
           response.choices[0].message.content = null;
         } catch (error) {
           logger({
-            category: "openai",
+            category: "gemini",
             message: "Failed to parse tool call response",
             level: 0,
             auxiliary: {
@@ -1524,7 +1524,7 @@ ${parsedSchema}
         }
       }
       logger({
-        category: "openai",
+        category: "gemini",
         message: "response",
         level: 1,
         auxiliary: {

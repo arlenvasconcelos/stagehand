@@ -126,7 +126,7 @@ export class GeminiAIClient extends LLMClient {
     const { image, requestId, ...optionsWithoutImageAndRequestId } = options;
 
     logger({
-      category: "openai",
+      category: "gemini",
       message: "creating chat completion",
       level: 1,
       auxiliary: {
@@ -232,7 +232,7 @@ export class GeminiAIClient extends LLMClient {
           });
         } catch (error) {
           logger({
-            category: "openai",
+            category: "gemini",
             message: "Failed to parse response model schema",
             level: 0,
           });
@@ -265,7 +265,7 @@ export class GeminiAIClient extends LLMClient {
     /* eslint-enable */
 
     logger({
-      category: "openai",
+      category: "gemini",
       message: "creating chat completion",
       level: 1,
       auxiliary: {
@@ -376,7 +376,7 @@ export class GeminiAIClient extends LLMClient {
         response.choices[0].message.content = null;
       } catch (error) {
         logger({
-          category: "openai",
+          category: "gemini",
           message: "Failed to parse tool call response",
           level: 0,
           auxiliary: {
@@ -405,7 +405,7 @@ export class GeminiAIClient extends LLMClient {
     }
 
     logger({
-      category: "openai",
+      category: "gemini",
       message: "response",
       level: 1,
       auxiliary: {
