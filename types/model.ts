@@ -3,6 +3,7 @@ import type { ClientOptions as OpenAIClientOptions } from "openai";
 import { z } from "zod";
 
 export const AvailableModelSchema = z.enum([
+  "google/gemini-2.0-flash-001",
   "gpt-4o",
   "gpt-4o-mini",
   "gpt-4o-2024-08-06",
@@ -15,7 +16,7 @@ export const AvailableModelSchema = z.enum([
 
 export type AvailableModel = z.infer<typeof AvailableModelSchema>;
 
-export type ModelProvider = "openai" | "anthropic";
+export type ModelProvider = "openai" | "anthropic" | "geminiai";
 
 export type ClientOptions = OpenAIClientOptions | AnthropicClientOptions;
 
